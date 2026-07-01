@@ -1,0 +1,516 @@
+# Instincts generated from https://github.com/JamesWilliam1977/mautic-
+# Generated: 2026-07-01T08:57:57.080Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: mautic--commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Commit Length
+
+## Action
+
+Keep commit messages concise (~38 characters)
+
+## Evidence
+
+- Average commit message length: 38 chars
+- Based on 16 commits
+
+---
+id: mautic--naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: mautic--import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: mautic--export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: mautic--test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: mautic--workflow-mass-test-refactor-or-type-improvement
+trigger: "when doing mass test refactor or type improvement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Mass Test Refactor Or Type Improvement
+
+## Action
+
+Follow the mass-test-refactor-or-type-improvement workflow:
+1. Identify a cross-cutting test code issue (e.g., stub-only properties, missing type coverage, test inheritance problems).
+2. Apply automated or manual refactoring to dozens of test files across bundles/plugins.
+3. Update related configuration or static analysis files (e.g., phpstan.neon).
+4. Commit all changes in a single, large commit or PR.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: app/bundles/*/Tests/**/*.php, plugins/*/Tests/**/*.php, phpstan.neon
+
+---
+id: mautic--workflow-add-or-improve-return-type-declarations
+trigger: "when doing add or improve return type declarations"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Add Or Improve Return Type Declarations
+
+## Action
+
+Follow the add-or-improve-return-type-declarations workflow:
+1. Identify PHP files (entities, helpers, models, forms, integrations) missing return type declarations.
+2. Add or update return type declarations in these files.
+3. Optionally update related test files if type changes require test adjustments.
+4. Update static analysis config (e.g., rector.php, phpstan.neon) if coverage metrics change.
+5. Commit all changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: app/bundles/*/Entity/*.php, app/bundles/*/Helper/*.php, app/bundles/*/Model/*.php
+
+---
+id: mautic--workflow-rector-or-coding-standard-mass-update
+trigger: "when doing rector or coding standard mass update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Rector Or Coding Standard Mass Update
+
+## Action
+
+Follow the rector-or-coding-standard-mass-update workflow:
+1. Configure Rector or coding standard tool with new rule(s).
+2. Run tool across all PHP source files (controllers, entities, helpers, integrations, etc).
+3. Review and commit all automated changes in a single commit/PR.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: app/bundles/*/Controller/*.php, app/bundles/*/Entity/*.php, app/bundles/*/Helper/*.php
+
+---
+id: mautic--workflow-merge-pr-with-mass-test-or-type-changes
+trigger: "when doing merge pr with mass test or type changes"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Merge Pr With Mass Test Or Type Changes
+
+## Action
+
+Follow the merge-pr-with-mass-test-or-type-changes workflow:
+1. Review PR containing many test or type changes across bundles/plugins.
+2. Merge PR (often with a descriptive message referencing the workflow, e.g., '[tests] inline stub-only properties').
+3. Resulting merge commit touches dozens of test or source files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: app/bundles/*/Tests/**/*.php, plugins/*/Tests/**/*.php, app/bundles/*/Entity/*.php
+
+---
+id: mautic--naming-files-pascalcase
+trigger: "When creating or renaming a file in the codebase."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Naming Files Pascalcase
+
+## Action
+
+Use PascalCase for file names.
+
+## Evidence
+
+- Pattern in namingConventions.files: PascalCase
+
+---
+id: mautic--naming-functions-camelcase
+trigger: "When defining a function."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Naming Functions Camelcase
+
+## Action
+
+Name the function using camelCase.
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: mautic--naming-classes-pascalcase
+trigger: "When defining a class."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Naming Classes Pascalcase
+
+## Action
+
+Name the class using PascalCase.
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: mautic--naming-constants-screaming-snake-case
+trigger: "When defining a constant."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Naming Constants Screaming Snake Case
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE.
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: mautic--import-style-relative
+trigger: "When importing modules or files."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Import Style Relative
+
+## Action
+
+Use relative import paths.
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: mautic--export-style-named
+trigger: "When exporting functions, classes, or constants."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Export Style Named
+
+## Action
+
+Use named exports.
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: mautic--test-file-pattern
+trigger: "When creating a new test file."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Test File Pattern
+
+## Action
+
+Name the test file with the pattern '*.test.ts'.
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.ts
+
+---
+id: mautic--test-type-unit
+trigger: "When writing tests."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Test Type Unit
+
+## Action
+
+Write unit tests by default.
+
+## Evidence
+
+- Pattern in testing.testTypes: unit
+
+---
+id: mautic--commit-prefix-tests
+trigger: "When committing changes related to tests."
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Commit Prefix Tests
+
+## Action
+
+Prefix the commit message with '[tests]'.
+
+## Evidence
+
+- Seen in commit: '[tests] inline stub-only properties'
+- Pattern in commits.prefixes: [tests]
+
+---
+id: mautic--commit-prefix-rector
+trigger: "When committing changes related to Rector or coding standards."
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Commit Prefix Rector
+
+## Action
+
+Prefix the commit message with '[rector]'.
+
+## Evidence
+
+- Seen in commit: '[rector] use identical on same-typed compares'
+- Pattern in commits.prefixes: [rector]
+
+---
+id: mautic--commit-prefix-types
+trigger: "When committing changes related to type improvements."
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Commit Prefix Types
+
+## Action
+
+Prefix the commit message with '[types]'.
+
+## Evidence
+
+- Pattern in commits.prefixes: [types]
+
+---
+id: mautic--commit-abstract-class-naming
+trigger: "When naming abstract test or command classes."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Commit Abstract Class Naming
+
+## Action
+
+Include 'Abstract' in the class name (e.g., 'AbstractCampaignCommand').
+
+## Evidence
+
+- Seen in commit: 'CampaignTestAbstract is Abstract'
+- Seen in commit: 'AbstractCampaignCommand is abstract'
+
+---
+id: mautic--workflow-mass-test-refactor
+trigger: "When someone wants to improve test code quality, type coverage, or refactor tests for consistency across the codebase."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Mass Test Refactor
+
+## Action
+
+Identify cross-cutting test code issues, refactor many test files, update static analysis config, and commit all changes in a single, large commit or PR.
+
+## Evidence
+
+- Workflow: mass-test-refactor-or-type-improvement
+- Seen in commits: '[tests] inline stub-only properties'
+
+---
+id: mautic--workflow-add-return-types
+trigger: "When someone wants to increase type safety and static analysis coverage by adding return type declarations."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Add Return Types
+
+## Action
+
+Identify PHP files missing return type declarations, add/update them, adjust tests/config as needed, and commit all changes together.
+
+## Evidence
+
+- Workflow: add-or-improve-return-type-declarations
+- Pattern in files: app/bundles/*/Entity/*.php, plugins/*/Helper/*.php
+
+---
+id: mautic--workflow-rector-mass-update
+trigger: "When someone wants to enforce a new coding standard or Rector rule across the codebase."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Rector Mass Update
+
+## Action
+
+Configure Rector/coding standard tool, run it across all PHP source files, review, and commit all automated changes in a single commit/PR.
+
+## Evidence
+
+- Workflow: rector-or-coding-standard-mass-update
+- Seen in commit: '[rector] use identical on same-typed compares'
+
+---
+id: mautic--workflow-merge-mass-change-pr
+trigger: "When a PR with mass test refactoring or type declaration improvements is ready to merge."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/mautic-
+---
+
+# Mautic  Workflow Merge Mass Change Pr
+
+## Action
+
+Review and merge the PR, ensuring the merge commit references the workflow and touches many files.
+
+## Evidence
+
+- Workflow: merge-pr-with-mass-test-or-type-changes
+- Seen in commit: 'Merge pull request #16427 from TomasVotruba/rector-tests-cdq-5'
+
